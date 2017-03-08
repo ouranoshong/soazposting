@@ -1,0 +1,22 @@
+{
+    "name": "xywl/soazposting",
+    "description": "A sdk for soazposting api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hong",
+            "email": "hong@xiyanghui.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "XYWL\\SOAZPOSTING\\": "./src"
+        }
+    },
+
+    "require": {
+
+    }
+}
