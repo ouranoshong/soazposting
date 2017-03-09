@@ -59,7 +59,7 @@ class Client
      */
     public function getAPIUsername()
     {
-        return $this->apiUser;
+        return $this->_apiUsername;
     }
 
     /**
@@ -67,7 +67,7 @@ class Client
      */
     public function getAPIToken()
     {
-        return $this->apiToken;
+        return $this->_apiToken;
     }
 
     /**
@@ -77,11 +77,11 @@ class Client
      */
     public function getSoazUsername()
     {
-        return $this->soazUser;
+        return $this->_soazUsername;
     }
 
     public function getWSDLUri() {
-        return $this->wsdl;
+        return $this->_wsdlUri;
     }
 
     /**
