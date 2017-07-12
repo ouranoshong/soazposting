@@ -23,6 +23,8 @@ class Client
     private $_soazUsername;
     private $_wsdlUri;
 
+    private $_location;
+
     public function __construct($apiUsername = '', $apiToken = '', $soazUsername = '', $wsdlUri = '')
     {
         $this->_apiUsername = $apiUsername;
@@ -51,6 +53,12 @@ class Client
         $this->_wsdlUri = $uri;
         return $this;
     }
+
+    public function setLocation($location) {
+        $this->_location = $location;
+        return $this;
+    }
+
 
     /**
      *
@@ -82,6 +90,10 @@ class Client
 
     public function getWSDLUri() {
         return $this->_wsdlUri;
+    }
+
+    public function getLocation() {
+        return $this->_location;
     }
 
     /**
@@ -156,7 +168,13 @@ class Client
      */
     protected function initService(RequestInterface $request)
     {
-        $Service = new SoazPostingService($request->getHandleOptions(), $this->getWSDLUri());
+        $options = [];
+
+        if($this->getLocation()) {
+            $options['location'] = $this->getLocation();
+        }
+
+        $Service = new SoazPostingService(array_merge($request->getHandleOptions(), $options), $this->getWSDLUri());
         $Service->__setSoapHeaders($this->generateHeader());
         return $Service;
     }
