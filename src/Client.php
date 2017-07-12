@@ -25,12 +25,14 @@ class Client
 
     private $_location;
 
-    public function __construct($apiUsername = '', $apiToken = '', $soazUsername = '', $wsdlUri = '')
+    public function __construct($apiUsername = '', $apiToken = '', $soazUsername = '', $wsdlUri = '', $location = '')
     {
         $this->_apiUsername = $apiUsername;
         $this->_apiToken = $apiToken;
         $this->_soazUsername = $soazUsername;
         $this->_wsdlUri = $wsdlUri;
+
+        $this->_location = $location;
     }
 
 
